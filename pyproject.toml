@@ -1,0 +1,31 @@
+[project]
+name = "twosp"
+version = "0.1.0"
+description = "2SP: build and analyse two-stage stochastic integer programs with Gurobi"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "İrfan Mahmutoğulları" }]
+requires-python = ">=3.9"
+dependencies = ["numpy", "scipy", "gurobipy>=12"]
+keywords = ["stochastic programming", "integer programming", "two-stage", "recourse", "gurobi", "SMPS"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+
+[project.urls]
+Homepage = "https://github.com/irfanmahmutogullari/2SP"
+Issues = "https://github.com/irfanmahmutogullari/2SP/issues"
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["twosp"]

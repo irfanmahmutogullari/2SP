@@ -1,0 +1,10 @@
+*.egg-info/
+__pycache__/
+.pytest_cache/
+build/
+dist/
+*.lp
+*.mps
+*.sol
+gurobi.log
+CLAUDE.md
