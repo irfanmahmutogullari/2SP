@@ -106,6 +106,12 @@ the SIPLIB instances SIZES and SSLP. The SSLP tests need a full Gurobi licence.
 - S. Ahmed. Two-stage stochastic integer programming: a brief introduction. In *Wiley Encyclopedia of Operations Research and Management Science*, 2010.
 - S. Ahmed, R. Garcia, N. Kong, L. Ntaimo, G. Parija, F. Qiu and S. Sen. SIPLIB: a stochastic integer programming test problem library. <https://www2.isye.gatech.edu/~sahmed/siplib>. The instances in [`tests/data`](tests/data) come from SIPLIB.
 
+## Acknowledgements
+
+Parts of the code, tests and documentation were developed with the help of
+[Claude Code](https://claude.com/claude-code) (Anthropic). All code was reviewed and tested by the author.
+
+
 ## Licence
 
 [MIT](LICENSE)
