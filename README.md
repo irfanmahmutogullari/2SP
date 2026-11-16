@@ -2,7 +2,7 @@
 
 **2SP** builds two-stage stochastic (mixed-)integer programs as Gurobi models. You describe the problem with
 NumPy or SciPy matrices; 2SP checks the data and builds the extensive form for you. It can also compute
-the value of perfect information and of the stochastic solution, and read SMPS files such as the SIPLIB instances.
+the expected value of perfect information (EVPI) and the value of the stochastic solution (VSS), and read SMPS files such as the SIPLIB instances.
 
 > **Status:** 0.1.0, an early release. The API may still change.
 
@@ -10,9 +10,9 @@ the value of perfect information and of the stochastic solution, and read SMPS f
 
 $$
 \begin{aligned}
-\min/\max\quad & c^\top x + \sum_{k} p_k\, q_k^\top y_k \\
-\text{s.t.}\quad & A x \;\lessgtr\; b \\
-& W y_k \;\lessgtr\; h_k - T_k x && \text{for every scenario } k \\
+\min/\max\quad & c^\top x + \sum_{k} p_k  q_k^\top y_k \\
+\text{s.t.}\quad & A x \; (\le, = , \ge) \;  b \\
+& W y_k \; (\le, = , \ge) \; h_k - T_k x && \text{for every scenario } k \\
 & l_1 \le x \le u_1, \quad l_2 \le y_k \le u_2
 \end{aligned}
 $$
@@ -20,7 +20,7 @@ $$
 - The recourse matrix $W$ is the same in every scenario; $q_k$, $h_k$ and $T_k$ may differ.
 - The **last** `p1` entries of $x$ and the **last** `p2` entries of $y_k$ are integer.
 - Each row can be `"<="`, `">="` or `"=="`. Default bounds are $0 \le x, y \le \infty$.
-- Scenario weights are scaled to sum to 1, so `prob=1` for every scenario means "equally likely".
+- Scenario probabilities are scaled to sum to 1, so `prob=1` for every scenario means "equally likely".
 
 ## Installation
 
