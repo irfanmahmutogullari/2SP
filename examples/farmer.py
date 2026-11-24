@@ -11,9 +11,12 @@ Second-stage rows, written as W y <= h - T x:
     -buy_w + sell_w       <= yield_w * x_w - 200
     -buy_c + sell_c       <= yield_c * x_c - 240
     sell_b36 + sell_b10   <= yield_b * x_b
+
+Also plots the block structure of the extensive form (needs matplotlib).
 """
+import matplotlib.pyplot as plt
 import numpy as np
-from twosp import TwoStageModel, evpi, vss
+from twosp import TwoStageModel, evpi, vss, plot_structure
 
 inf = np.inf
 sp = TwoStageModel(c=np.array([-150, -230, -260]), A=np.array([[1, 1, 1]]), b=np.array([500]),
@@ -33,3 +36,6 @@ model = sp.build()
 model.optimize()
 print("x* =", sp.x.X, " expected profit =", model.ObjVal)
 print("EVPI =", evpi(sp), " VSS =", vss(sp))  # book: 7,016 and 1,150
+
+plot_structure(sp)
+plt.show()

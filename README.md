@@ -73,6 +73,8 @@ print(evpi(sp), vss(sp))                          # 1.5 0.25
 | `sp.build()` | Returns the extensive form as a `gurobipy.Model`; the variables are `sp.x` and `sp.ys[k]` (Gurobi `MVar`s). |
 | `recourse_problem`, `wait_and_see`, `expected_value_problem`, `expected_result_of_ev`, `evpi`, `vss` | RP, WS, EV, EEV, EVPI and VSS as in Birge & Louveaux, Ch. 4. EVPI and VSS are always $\ge 0$, also for `"max"`. |
 | `read_smps(cor, tim, sto)` | Reads SMPS files; returns `(sp, x_names, y_names)`. |
+| `plot_structure(sp, ax=None)` | Plots the nonzeros of the extensive form with the $A$, $T_k$ and $W$ blocks marked; returns the matplotlib axes. Needs matplotlib (`pip install "twosp[plot]"`). |
+| `extensive_matrix(sp)` | The constraint matrix of the extensive form, as a SciPy sparse matrix. |
 
 Vectors and matrices may be lists, NumPy arrays or SciPy sparse matrices. Wrong input raises an error that
 names the argument, e.g. `ValueError: scenario 3: h must have shape (2,), got (3,)`.

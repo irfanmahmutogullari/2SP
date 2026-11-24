@@ -8,9 +8,12 @@ integer programming" (ZIB preprint SC 96-46, 1996), adapted there from Schultz, 
                     y binary
     xi uniform on {5, 5.5, ..., 15}^2  (441 scenarios).
     Paper reports: x* = (0, 4), z* = 61.32.
+
+Also plots the block structure of the extensive form (needs matplotlib).
 """
+import matplotlib.pyplot as plt
 import numpy as np
-from twosp import TwoStageModel
+from twosp import TwoStageModel, plot_structure
 
 sp = TwoStageModel(c=np.array([1.5, 4.0]), p1=2, ub=5, objective="max")
 sp.set_second_stage(W=np.array([[2, 3, 4, 5],
@@ -25,3 +28,6 @@ for xi1 in np.arange(5, 15.5, 0.5):
 model = sp.build()
 model.optimize()
 print("x* =", sp.x.X, " z* =", model.ObjVal)
+
+plot_structure(sp)
+plt.show()

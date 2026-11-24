@@ -22,6 +22,7 @@ Issues = "https://github.com/irfanmahmutogullari/2SP/issues"
 
 [project.optional-dependencies]
 test = ["pytest"]
+plot = ["matplotlib"]
 
 [build-system]
 requires = ["setuptools>=77"]
